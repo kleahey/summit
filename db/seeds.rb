@@ -58,3 +58,70 @@ teammember_list = [
 teammember_list.each do |name|
   Teammember.create( name: name )
 end
+
+location_list = [
+  "Lake Fairfax",
+  "Registration Desk",
+  "Grand Ballroom E",
+  "Grand Ballroom D",
+  "Regency B",
+  "The Living Room",
+  "Regency A",
+  "Outdoor Pavilion",
+  "McCormick and Schmidt's (Jackson Room)",
+  "Clyde's"
+]
+
+location_list.each do |location|
+  Location.create( name: location )
+end
+
+role_list = [
+  "Mic Runner",
+  "Room Host",
+  "Host",
+  "Ambassador",
+  "Facilitator",
+  "Presenter"
+]
+
+role_list.each do |role|
+  Role.create( name: role )
+end
+
+session_list = [
+  "Expert Bar",
+  "Innovation Space",
+  "Strategic Committee",
+  "Strategic Workshop",
+  "Slideroom",
+  "Slate",
+  "Naviance",
+  "ScholarSnapp",
+  "Workday",
+  "Reception",
+  "Strategic Planning Dinner",
+  "Staff Meeting",
+  "Registration",
+  "Consultation",
+  "Consult Desk",
+  "Consult Runner",
+  "Breakfast",
+  "Slate Session",
+  "CA Workshop",
+  "Payment Processing",
+  "Enrollment Leaders Roundtable",
+  "Keynote Luncheon",
+  "Using CA Data",
+  "Higher Ed Trends",
+  "Roadmap Plenary",
+  "Self Reported Transcripts",
+  "Supporting College Board",
+  "Apps Advisory Dinner",
+  "Member Tech Live",
+  "Partner Panel"
+]
+
+session_list.each do |session|
+  Session.create( name: session )
+end

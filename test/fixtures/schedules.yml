@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_time: 2017-04-25 11:38:26
+  end_time: 2017-04-25 11:38:26
+  teammember_id: 1
+  location_id: 1
+  role_id: 1
+  session_id: 1
+
+two:
+  start_time: 2017-04-25 11:38:26
+  end_time: 2017-04-25 11:38:26
+  teammember_id: 1
+  location_id: 1
+  role_id: 1
+  session_id: 1

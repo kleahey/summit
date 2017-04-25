@@ -1,47 +1,33 @@
-<%= form_for(schedule) do |f| %>
-  <% if schedule.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
+<div class="card" style="width: 44rem;">
+    <div class="card-block">
+      <h4 class="card-title">Schedule Entry</h4>
+      <p class="card-text">
+        <%= simple_form_for(schedule) do |form| %>
+        <% if schedule.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
 
-      <ul>
-      <% schedule.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+            <ul>
+            <% schedule.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="form-group">
+          <%= form.datetime_field :start_time, class: "form-control" %></br>
+          <%= form.datetime_field :end_time, class: "form-control" %></br>
+          <%= form.collection_select( :teammember_id, @teammembers, :id, :name ) %></br>
+          <%= form.collection_select( :location_id, @locations, :id, :name ) %></br>
+          <%= form.collection_select( :role_id, @roles, :id, :name ) %></br>
+          <%= form.collection_select( :session_id, @sessions, :id, :name ) %></br>
+          <div class="row">
+            <%= form.button :submit, class: "btn btn-primary" %>
+            <%= link_to "Cancel", schedules_path , class: "btn" %>
+          </div>
+        </div>
+        <% end %>
+      </p>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :start_time %>
-    <%= f.datetime_select :start_time %>
   </div>
-
-  <div class="field">
-    <%= f.label :end_time %>
-    <%= f.datetime_select :end_time %>
-  </div>
-
-  <div class="field">
-    <%= f.label :teammember_id %>
-    <%= f.number_field :teammember_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :location_id %>
-    <%= f.number_field :location_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :role_id %>
-    <%= f.number_field :role_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :session_id %>
-    <%= f.number_field :session_id %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

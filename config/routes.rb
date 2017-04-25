@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "schedules/search"
+
   resources :schedules
   resources :sessions
   resources :roles

@@ -12,22 +12,22 @@
 
 <p>
   <strong>Teammember:</strong>
-  <%= @schedule.teammember_id %>
+  <%= @teammember.name %>
 </p>
 
 <p>
   <strong>Location:</strong>
-  <%= @schedule.location_id %>
+  <%= @location.name %>
 </p>
 
 <p>
   <strong>Role:</strong>
-  <%= @schedule.role_id %>
+  <%= @role.name %>
 </p>
 
 <p>
   <strong>Session:</strong>
-  <%= @schedule.session_id %>
+  <%= @session.name %>
 </p>
 
 <%= link_to 'Edit', edit_schedule_path(@schedule) %> |

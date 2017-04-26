@@ -2,11 +2,12 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1>Schedule for <% unless @schedules.nil? %><%= @schedules.first.teammember.name %><% end %></h1>
+<h1>Schedule for <%= @schedules.first.teammember.name %></h1>
 
-<table class="table">
+<table class="table table-striped">
   <thead>
     <tr>
+      <th>Date</th>
       <th>Start Time</th>
       <th>End Time</th>
       <th>Location</th>
@@ -17,8 +18,9 @@
   <tbody>
   <% @schedules.each do |s| %>
     <tr>
-      <td><%= s.start_time %></td>
-      <td><%= s.end_time %></td>
+      <td><%= s.start_time.strftime("%B %e") %></td>
+      <td><%= s.start_time.strftime("%I:%M %P") %></td>
+      <td><%= s.end_time.strftime("%I:%M %P") %></td>
       <td><%= s.location.name %></td>
       <td><%= s.session.name %></td>
       <td><%= s.role.name %></td>
@@ -30,6 +32,6 @@
   <br>
 
 
-<%= link_to 'New Schedule', new_teammember_schedule_url(:teammember_id) %>
+<%= link_to 'Back to Team Member List', teammembers_path %>
 
 </div>

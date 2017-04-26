@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :schedules
   resources :sessions
   resources :roles
   resources :locations

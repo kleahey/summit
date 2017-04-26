@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 teammember_list = [
-  "Jenny Ricard",
+  "Jenny Rickard",
   "Lesley Hargreaves",
   "Chad Massie",
   "Aba Blankson",

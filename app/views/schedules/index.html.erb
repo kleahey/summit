@@ -23,7 +23,11 @@
           <td><%= s.start_time.strftime("%B %e") %></td>
           <td><%= s.start_time.strftime("%I:%M %P") %></td>
           <td><%= s.end_time.strftime("%I:%M %P") %></td>
-          <td><%= s.location.name %></td>
+          <% if s.location.id == 9 || s.location.id == 10 %>
+            <td><%= s.location.name %></td>
+          <% else %>
+            <td><%= link_to s.location.name, "http://www.cauniversity.net/mod/page/view.php?id=235" %></td>
+          <% end %>
           <td><%= s.session.name %></td>
           <td><%= s.role.name %></td>
         </tr>

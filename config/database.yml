@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: summit1_production
-  username: summit
-  password: <%= ENV['SUMMIT1_DATABASE_PASSWORD'] %>
+  database: summitschedules_production
+  username: summitschedules_production
+  password: <%= ENV['SUMMITSCHEDULES_DATABASE_PASSWORD'] %>

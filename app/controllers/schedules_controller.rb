@@ -8,7 +8,7 @@ class SchedulesController < ApplicationController
   # GET /schedules
   # GET /schedules.json
   def index
-    @schedules = Schedule.where(teammember_id: params[:teammember_id])
+    @schedules = Schedule.where(teammember_id: params[:teammember_id]).order(start_time: :asc)
   end
 
   # GET /schedules/1

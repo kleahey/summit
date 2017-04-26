@@ -82,4 +82,4 @@ production:
   <<: *default
   database: summit1_production
   username: summit
-  password: <%= ENV['RECIPEBOX_DATABASE_PASSWORD'] %>
+  password: <%= ENV['SUMMIT1_DATABASE_PASSWORD'] %>

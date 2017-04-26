@@ -2,35 +2,36 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1>Schedule for <%= @schedules.first.teammember.name %></h1>
-
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th>Start Time</th>
-      <th>End Time</th>
-      <th>Location</th>
-      <th>Session</th>
-      <th>Role</th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @schedules.each do |s| %>
-    <tr>
-      <td><%= s.start_time.strftime("%B %e") %></td>
-      <td><%= s.start_time.strftime("%I:%M %P") %></td>
-      <td><%= s.end_time.strftime("%I:%M %P") %></td>
-      <td><%= s.location.name %></td>
-      <td><%= s.session.name %></td>
-      <td><%= s.role.name %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
-
+<% if @schedules.blank? %>
+  <h1>No schedule info for this Team Member</h1>
+<% else %>
+  <h1>Schedule for <%= @schedules.first.teammember.name %></h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Location</th>
+        <th>Session</th>
+        <th>Role</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @schedules.each do |s| %>
+        <tr>
+          <td><%= s.start_time.strftime("%B %e") %></td>
+          <td><%= s.start_time.strftime("%I:%M %P") %></td>
+          <td><%= s.end_time.strftime("%I:%M %P") %></td>
+          <td><%= s.location.name %></td>
+          <td><%= s.session.name %></td>
+          <td><%= s.role.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
   <br>
-
+<% end %>
 
 <%= link_to 'Back to Team Member List', teammembers_path %>
 

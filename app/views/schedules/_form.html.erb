@@ -2,7 +2,7 @@
     <div class="card-block">
       <h4 class="card-title">Schedule Entry</h4>
       <p class="card-text">
-        <%= simple_form_for(schedule) do |form| %>
+        <%= simple_form_for [:teammember, @schedule] do |form| %>
         <% if schedule.errors.any? %>
           <div id="error_explanation">
             <h2><%= pluralize(schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
@@ -23,7 +23,7 @@
           <%= form.collection_select( :session_id, @sessions, :id, :name ) %></br>
           <div class="row">
             <%= form.button :submit, class: "btn btn-primary" %>
-            <%= link_to "Cancel", schedules_path , class: "btn" %>
+            <%= link_to "Cancel", teammember_schedules_path , class: "btn" %>
           </div>
         </div>
         <% end %>

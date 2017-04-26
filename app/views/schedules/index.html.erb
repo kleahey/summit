@@ -1,9 +1,35 @@
+<div class="container">
+
 <p id="notice"><%= notice %></p>
 
-<h1>Schedules</h1>
+<h1>Schedule for <% unless @schedules.nil? %><%= @schedules.first.teammember.name %><% end %></h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Start Time</th>
+      <th>End Time</th>
+      <th>Location</th>
+      <th>Session</th>
+      <th>Role</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @schedules.each do |s| %>
+    <tr>
+      <td><%= s.start_time %></td>
+      <td><%= s.end_time %></td>
+      <td><%= s.location.name %></td>
+      <td><%= s.session.name %></td>
+      <td><%= s.role.name %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+  <br>
 
 
+<%= link_to 'New Schedule', new_teammember_schedule_url(:teammember_id) %>
 
-<br>
-
-<%= link_to 'New Schedule', new_schedule_path %>
+</div>

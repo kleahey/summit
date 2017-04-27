@@ -4,7 +4,7 @@ class TeammembersController < ApplicationController
   # GET /teammembers
   # GET /teammembers.json
   def index
-    @teammembers = Teammember.all
+    @teammembers = Teammember.all.order(name: :asc)
   end
 
   # GET /teammembers/1

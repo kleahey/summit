@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'roomschedules', to: "roomschedules#index"
   resources :sessions
   resources :roles
   resources :locations

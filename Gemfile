@@ -57,3 +57,6 @@ gem 'simple_form'
 
 # Bootstrap 4 for Rails
 gem 'bootstrap', '~> 4.0.0.alpha6'
+
+# HTTParty for API transactions
+gem 'httparty'

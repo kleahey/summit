@@ -4,7 +4,7 @@ class TeammembersController < ApplicationController
   # GET /teammembers
   # GET /teammembers.json
   def index
-    @teammembers = Teammember.all.order(name: :asc)
+    @teammembers = Teammember.where(id > 5)
   end
 
   # GET /teammembers/1

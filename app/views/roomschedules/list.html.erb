@@ -11,16 +11,16 @@
           <th>Role</th>
         </tr>
       </thead>
-      <tbody>
-        <% @schedules.each do |schedule| %>
+      <% @schedules.each do |schedule| %>
+        <tbody>
           <% if schedule.start_time == date.start_time%>
             <tr>
-              <td><%= schedule.teammember.name %></td>
+              <td><%= link_to schedule.teammember.name, teammember_schedules_path(schedule.teammember.id) %></td>
               <td><%= schedule.role.name %></td>
             </tr>
           <% end %>
-        <% end %>
-      </tbody>
+        </tbody>
+      <% end %>
     </table>
   <% end %>
 

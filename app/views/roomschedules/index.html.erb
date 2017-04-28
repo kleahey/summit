@@ -1,5 +1,16 @@
 <div class="container">
-  <% @rooms.each do |room| %>
-    <%= room.name %></br>
-  <% end %>
+  <table class="table table-striped">
+    <thead>
+      <th>Select a Room Session</th>
+    </thead>
+    <tbody>
+      <% @rooms.each do |room| %>
+      <tr>
+        <td>
+          <%= link_to room.name, roomschedules_list_path(room.id) %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>

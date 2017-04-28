@@ -6,7 +6,7 @@ class RoomschedulesController < ApplicationController
 
   def list
     @session = Session.find(params[:session_id])
-    @roominfo = Schedule.where(session_id: params[:session_id]).order(role_id: :desc)
+    @schedules = Schedule.where(session_id: params[:session_id]).order(role_id: :desc)
   end
 
   private

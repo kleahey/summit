@@ -4,10 +4,10 @@
       <th>Select a Room Session</th>
     </thead>
     <tbody>
-      <% @rooms.each do |room| %>
+      <% @sessions.each do |session| %>
       <tr>
         <td>
-          <%= link_to room.name, roomschedules_list_path(room.id) %>
+          <%= link_to session.name, roomschedules_list_path(session.id) %>
         </td>
       </tr>
       <% end %>

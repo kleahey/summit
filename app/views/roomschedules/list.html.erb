@@ -1,20 +1,29 @@
 <div class="container">
   <h1>Staffing for <%= @session.name %></h1>
   <h3>Location: <%= @schedules.first.location.name %></h3></br>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Team Member</th>
-        <th>Role</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @schedules.each do |schedule| %>
-      <tr>
-        <td><%= schedule.teammember.name %></td>
-        <td><%= schedule.role.name %></td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
+
+  <% @dates.each do |date| %>
+    <h6><%= date.start_time.strftime("%B %e at %I:%M %P") %><br></h6>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Team Member</th>
+          <th>Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @schedules.each do |schedule| %>
+          <% if schedule.start_time == date.start_time%>
+            <tr>
+              <td><%= schedule.teammember.name %></td>
+              <td><%= schedule.role.name %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+
+  </br>
+
 </div>

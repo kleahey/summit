@@ -28,7 +28,7 @@
           <% else %>
             <td><%= link_to s.location.name, "http://www.cauniversity.net/mod/resource/view.php?id=236" %></td>
           <% end %>
-          <td><%= s.session.name %></td>
+          <td><%= link_to s.session.name, roomschedules_list_path(s.session.id) %></td>
           <td><%= s.role.name %></td>
         </tr>
       <% end %>

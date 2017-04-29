@@ -1,0 +1,62 @@
+<h1>Editing Schedule</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-8">
+        <div class="card">
+            <div class="card-block">
+              <h4 class="card-title">Schedule Entry</h4>
+              <p class="card-text">
+                <%= simple_form_for @schedule, :url => admin_teammember_schedule_path do |form| %>
+                <% if @schedule.errors.any? %>
+                  <div id="error_explanation">
+                    <h2><%= pluralize(schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
+
+                    <ul>
+                    <% schedule.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                    <% end %>
+                    </ul>
+                  </div>
+                <% end %>
+                <div class="form-group row">
+                  <%= form.datetime_field :start_time, class: "form-control" %></br>
+                </div>
+                <div class="form-group row">
+                  <%= form.datetime_field :end_time, class: "form-control" %></br>
+                </div>
+                <div class="form-group row">
+                  <%= form.collection_select( :teammember_id, @teammembers, :id, :name ) %></br>
+                </div>
+                <div class="form-group row">
+                  <%= form.collection_select( :location_id, @locations, :id, :name, { :class => "form-control" } ) %></br>
+                </div>
+                <div class="form-group row">
+                  <%= form.collection_select( :role_id, @roles, :id, :name, {:class=>"form-control"} ) %></br>
+                </div>
+                <div class="form-group row">
+                  <%= form.collection_select( :session_id, @sessions, :id, :name, {:class=>"form-control"} ) %></br>
+                </div>
+                <div class="button-group text-center">
+                  <%= form.button :submit, class: "btn btn-primary" %>
+                  <%= link_to "Cancel", admin_teammember_schedules_path , class: "btn" %>
+                  </div>
+                </div>
+                <% end %>
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-2">
+      </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="text-center">
+    <%= link_to 'Back', admin_teammember_schedules_path %>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="container">
+
+<p id="notice"><%= notice %></p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Select a Team Member Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @teammembers.each do |teammember| %>
+      <tr>
+        <td><%= link_to teammember.name, admin_teammember_schedules_path(teammember.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>

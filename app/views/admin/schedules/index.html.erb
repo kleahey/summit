@@ -1,0 +1,44 @@
+<div class="container">
+
+<p id="notice"><%= notice %></p>
+
+<% if @schedules.blank? %>
+  <h1>No schedule info for this Team Member</h1>
+<% else %>
+  <h1>Schedule for <%= @schedules.first.teammember.name %></h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Date</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Location</th>
+        <th>Session</th>
+        <th>Role</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @schedules.each do |s| %>
+        <tr>
+          <th><%= link_to "Edit", admin_edit_teammember_schedule_path(s.teammember.id, s.id) %> | <%= link_to 'Delete', admin_teammember_schedule_path(s.teammember.id, s.id), method: :delete, data: { confirm: 'Are you sure?' } %></th>
+          <td><%= s.start_time.strftime("%B %e") %></td>
+          <td><%= s.start_time.strftime("%I:%M %P") %></td>
+          <td><%= s.end_time.strftime("%I:%M %P") %></td>
+          <% if s.location.id == 9 || s.location.id == 10 %>
+            <td><%= s.location.name %></td>
+          <% else %>
+            <td><%= link_to s.location.name, "http://www.cauniversity.net/mod/resource/view.php?id=236" %></td>
+          <% end %>
+          <td><%= s.session.name %></td>
+          <td><%= s.role.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+<% end %>
+
+<%= link_to 'Back to Team Member List', admin_teammembers_path %>
+
+</div>

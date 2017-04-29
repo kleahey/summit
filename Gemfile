@@ -60,3 +60,6 @@ gem 'bootstrap', '~> 4.0.0.alpha6'
 
 # HTTParty for API transactions
 gem 'httparty'
+
+# Font-awesome
+gem 'font-awesome-rails'

@@ -21,7 +21,13 @@
     <tbody>
       <% @schedules.each do |s| %>
         <tr>
-          <th><%= link_to "Edit", admin_edit_teammember_schedule_path(s.teammember.id, s.id) %> | <%= link_to 'Delete', admin_teammember_schedule_path(s.teammember.id, s.id), method: :delete, data: { confirm: 'Are you sure?' } %></th>
+          <th><%= link_to admin_teammember_schedule_path(s.teammember.id, s.id), method: :delete, data: { confirm: 'Are you sure?' }  do %>
+              <%= fa_icon "trash" %>
+              <% end %> |
+              <%= link_to admin_edit_teammember_schedule_path(s.teammember.id, s.id) do %>
+              <%= fa_icon "pencil-square-o" %>
+              <% end %>
+          </th>
           <td><%= s.start_time.strftime("%B %e") %></td>
           <td><%= s.start_time.strftime("%I:%M %P") %></td>
           <td><%= s.end_time.strftime("%I:%M %P") %></td>

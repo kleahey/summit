@@ -1,5 +1,3 @@
-require "HipChat"
-
 class Hip
 
   def self.notify_new(teammember, session, role, location, start_time)

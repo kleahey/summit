@@ -63,3 +63,9 @@ gem 'httparty'
 
 # Font-awesome
 gem 'font-awesome-rails'
+
+# Hipchat API Wrapper
+gem 'hipchat'
+
+# Figaro for managing keys and tokens
+gem 'figaro'

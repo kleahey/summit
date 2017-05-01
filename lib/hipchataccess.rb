@@ -2,7 +2,7 @@ class Hip
 
   def self.notify_new(teammember, session, role, location, start_time)
     client = HipChat::Client.new(Figaro.env.hipchat_token, :api_version => 'v2', :message_format => 'html')
-    client[Figaro.env.hipchat_roomid].send("CA University", "<strong>A scheduled event has been added to #{teammember}'s schedule:</strong></br>
+    client[Figaro.env.hipchat_roomid].send("CA University", "<strong>An event has been added to #{teammember}'s schedule:</strong></br>
       Session: #{session}</br>
       Role: #{role}</br>
       Location: #{location}</br>
@@ -11,7 +11,7 @@ class Hip
 
   def self.notify_update(teammember, session, role, location, start_time)
     client = HipChat::Client.new(Figaro.env.hipchat_token, :api_version => 'v2', :message_format => 'html')
-    client[Figaro.env.hipchat_roomid].send("CA University", "<strong>A scheduled event has been updated on #{teammember}'s schedule:</strong></br>
+    client[Figaro.env.hipchat_roomid].send("CA University", "<strong>An event has been updated on #{teammember}'s schedule:</strong></br>
       Session: #{session}</br>
       Role: #{role}</br>
       Location: #{location}</br>
@@ -20,7 +20,7 @@ class Hip
 
   def self.notify_delete(teammember, session, role, location, start_time)
     client = HipChat::Client.new(Figaro.env.hipchat_token, :api_version => 'v2', :message_format => 'html')
-    client[Figaro.env.hipchat_roomid].send("CA University", "<strong>A scheduled event has been removed from #{teammember}'s schedule:</strong></br>
+    client[Figaro.env.hipchat_roomid].send("CA University", "<strong>An event has been removed from #{teammember}'s schedule:</strong></br>
       Session: #{session}</br>
       Role: #{role}</br>
       Location: #{location}</br>

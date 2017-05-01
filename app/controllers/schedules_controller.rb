@@ -11,7 +11,7 @@ class SchedulesController < ApplicationController
   end
 
   def consultations
-    @consultations = Schedule.where(session_id: 14).except(role_id: 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 || 12 || 13).order(start_time: :asc)
+    @consultations = Schedule.where(session_id: 14).where.not(role_id: 12 || 13).order(start_time: :asc)
   end
 
   private

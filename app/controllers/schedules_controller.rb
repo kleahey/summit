@@ -11,7 +11,7 @@ class SchedulesController < ApplicationController
   end
 
   def consultations
-    @consultations = Schedule.where(session_id: 14).where.not(role_id: 12 || 13).order(start_time: :asc)
+    @consultations = Schedule.where(session_id: 14).where.not(role_id: ['12', '13']).order(start_time: :asc)
   end
 
   private
@@ -37,6 +37,7 @@ class SchedulesController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
+
     def schedule_params
       params.require(:schedule).permit(:start_time, :end_time, :teammember_id, :location_id, :role_id, :session_id)
     end

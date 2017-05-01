@@ -1,6 +1,8 @@
 <h1>Consultations List</h1>
 
 <div class="container">
+  <h5>There are currently <%= @consultations.count %> consultations scheduled.</h5></br>
+  <br>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -21,5 +23,5 @@
   </table>
 
   <%= link_to 'Back to Team Member List', teammembers_path %>
-  
+
 </div>

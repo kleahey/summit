@@ -1,0 +1,25 @@
+<h1>Consultations List</h1>
+
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>MRM/MRA/IS</th>
+        <th>College/University</th>
+        <th>Start Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @consultations.each do |consultation| %>
+      <tr>
+        <td><%= consultation.teammember.name %></td>
+        <td><%= consultation.role.name %></td>
+        <td><%= consultation.start_time.strftime("%B %e, %I:%M %P") %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= link_to 'Back to Team Member List', teammembers_path %>
+  
+</div>

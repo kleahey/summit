@@ -10,6 +10,10 @@ class SchedulesController < ApplicationController
     @schedules = Schedule.where(teammember_id: params[:teammember_id]).order(start_time: :asc)
   end
 
+  def consultations
+    @consultations = Schedule.where(session_id: 14).order(start_time: :asc)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_schedule

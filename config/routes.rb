@@ -5,6 +5,9 @@ Rails.application.routes.draw do
 
   get 'consultations', as: "consultations", to: "schedules#consultations"
 
+  get 'allschedules', as: "allschedules", to: "allschedules#selectDate"
+  get 'allschedules/monday', as: "allschedules_monday", to: "allschedules#monday"
+
   get 'admin', to: "admin#index"
   get 'admin/teammembers', to: "admin/teammembers#index"
   get 'admin/teammembers/:teammember_id/schedules', as: "admin_teammember_schedules", to: "admin/schedules#index"

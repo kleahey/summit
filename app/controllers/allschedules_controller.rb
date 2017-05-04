@@ -5,7 +5,8 @@ class AllschedulesController < ApplicationController
   end
 
   def monday
-    @sessions = Session.where("extract(day from start_time) = ?", 8)
+    @sessions = Session.where("extract(day from start_time) = ?", 8).order(start_time: :asc)
+    @teammembers = Schedule.where("extract(day from start_time) = ?", 8)
   end
 
 end

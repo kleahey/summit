@@ -34,7 +34,7 @@ class Admin::SchedulesController < ApplicationController
 
     respond_to do |format|
       if @schedule.save
-        Hip.notify_new(@schedule.teammember.name, @schedule.session.name, @schedule.role.name, @schedule.location.name, @schedule.start_time.strftime("%B %e %I:%M %P"))
+        Hip.notify_new(@schedule.teammember.name, @schedule.teammember.handle, @schedule.session.name, @schedule.role.name, @schedule.location.name, @schedule.start_time.strftime("%B %e %I:%M %P"))
         format.html { redirect_to admin_teammember_schedules_path, notice: 'Schedule was successfully created.' }
         format.json { render :show, status: :created, location: admin_teammember_schedules_path }
       else
@@ -49,7 +49,7 @@ class Admin::SchedulesController < ApplicationController
   def update
     respond_to do |format|
       if @schedule.update(schedule_params)
-        Hip.notify_update(@schedule.teammember.name, @schedule.session.name, @schedule.role.name, @schedule.location.name, @schedule.start_time.strftime("%B %e %I:%M %P"))
+        Hip.notify_update(@schedule.teammember.name, @schedule.teammember.handle, @schedule.session.name, @schedule.role.name, @schedule.location.name, @schedule.start_time.strftime("%B %e %I:%M %P"))
         format.html { redirect_to admin_teammember_schedules_path, notice: 'Schedule was successfully updated.' }
         format.json { render :show, status: :ok, location: admin_teammember_schedules_path }
       else
@@ -64,7 +64,7 @@ class Admin::SchedulesController < ApplicationController
   def destroy
     @schedule.destroy
     respond_to do |format|
-      Hip.notify_delete(@schedule.teammember.name, @schedule.session.name, @schedule.role.name, @schedule.location.name, @schedule.start_time.strftime("%B %e %I:%M %P"))
+      Hip.notify_delete(@schedule.teammember.name, @schedule.teammember.handle, @schedule.session.name, @schedule.role.name, @schedule.location.name, @schedule.start_time.strftime("%B %e %I:%M %P"))
       format.html { redirect_to admin_teammember_schedules_path, notice: 'Schedule was successfully destroyed.' }
       format.json { head :no_content }
     end
